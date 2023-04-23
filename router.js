@@ -13,5 +13,10 @@ router.get('/DetailPage', function(req, res) {
 router.get('/AboutMe', function(req, res) {
     res.sendFile(__dirname + '/src/html/AboutMe.html');
 });
+
+router.get('/ChatPage', function(req, res) {
+    res.sendFile(__dirname + '/src/html/ChatPage.html');
+});
+
 // 导出路由
 module.exports = router;

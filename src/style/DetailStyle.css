@@ -1,0 +1,22 @@
+.content{
+    margin-top: 40px;
+    width: 60%;
+    height: 90vh;
+    margin-left: 8%;
+    border: 1px solid #cbcbcb;
+    border-radius: 40px;
+}
+.head{
+    width: 100%;
+    margin-top: 10px;
+    height: 30px;
+    margin-left: 5%;
+    font-size: 30px;
+    font-weight: 600;
+    color: #000;
+}
+
+.main_content{
+    width: 80%;
+    margin: 16px auto 0 auto;
+}
