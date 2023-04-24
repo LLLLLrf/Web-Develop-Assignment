@@ -1,5 +1,4 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -62,10 +61,11 @@ body {
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar-track {
-  width: 6px;
+  width: 3px;
   background: rgba(#101F1C, 0.1);
   -webkit-border-radius: 2em;
   -moz-border-radius: 2em;
@@ -89,23 +89,26 @@ body {
 
 /* the chat box */
 .chat-box {
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   width: 60%;
   margin-left: 10%;
-  margin-top: 46px;
+  margin-top: 50px;
   border-radius: 40px;
-  border: 2px solid #cbcbcb;
+  border: 2px solid #007bff;
   height: 86vh;
+  overflow-x: hidden;
 }
 .message-list {
   flex-grow: 1;
   overflow-y: scroll;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .message-item {
   margin-bottom: 10px;
+  margin-left: 10px;
 }
 .message-item .user-name {
   font-weight: bold;
@@ -116,10 +119,12 @@ body {
 
 /* input */
 .input-box {
+  /* border-top: #007bff 1px solid; */
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
+  background-color: aliceblue;
   border-radius: 0 0 40px 40px;
 }
 .input-box input[type="text"] {
@@ -127,7 +132,13 @@ body {
   margin-right: 10px;
   padding: 10px;
   border-radius: 16px;
-  border: none;
+  border: #000 2px solid;
+}
+.input-box input[type="text"]:focus {
+  outline: none;
+  border-radius: 20px;
+  border: #007bff 2px solid;
+  transition: all 0.3s ease-in-out;
 }
 .input-box button[type="submit"] {
   padding: 5px 10px;
