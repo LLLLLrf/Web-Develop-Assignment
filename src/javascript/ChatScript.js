@@ -37,12 +37,13 @@ socket.addEventListener('message', event => {
   reader.addEventListener('loadend', function () {
     const message = reader.result;
     console.log('Received message:', message);
-
+    let Name = document.getElementById("input_username").value;
+    if(Name===""){Name="Anonymous"}
     // 创建消息元素，并添加到消息列表中
     const messageItem = document.createElement('div');
     messageItem.classList.add('message-item');
     messageItem.innerHTML = `
-      <span class="user-name">Anonymous:</span>
+      <span class="user-name">${Name}</span>
       <span class="message-text">${message}</span>
     `;
     messageList.appendChild(messageItem);
@@ -56,6 +57,10 @@ socket.addEventListener('message', event => {
 socket.addEventListener('close', event => {
   console.log('WebSocket disconnected');
 });
+
+
+
+
 
 
 // redirect to other pages
