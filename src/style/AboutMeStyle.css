@@ -2,11 +2,12 @@
     float: right;
     background: #008bf8;
     width: 20%;
+    min-width: 260px;
     height: 100vh;
     position: fixed;
     right: 0;
     top: 0;
-    z-index: -1;
+    z-index: 100;
     border-radius: 60% 0 0 20%;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
     transition: 0.5s ease-out;
@@ -53,8 +54,19 @@
       border: 1px solid #c3c6ce;
     }
 }
-
-
+/* time */
+.time{
+    float: left;
+    color: #fff;
+    font-size: 1.5em;
+    margin-left: 54%;
+    margin-top: 14px;
+    text-shadow: 1px 1px 1px rgb(135,206,250),
+    1px 1px 3px rgb(65, 126, 248),
+    2px 2px 2px rgb(104, 116, 244),
+    4px 4px 2px rgb(79, 61, 242);
+}
+/* home button */
 .tooltip {
     display: flex;
     float: right;
@@ -69,8 +81,8 @@
     transition: all 0.2s linear;
 }
 .tooltip:hover {
-    scale: 1.03;
-    transition: scale 0.05s linear;
+    transform: scale(1.1);
+    transition: transform 0.05s linear;
 }
    
 .tooltip {
@@ -99,7 +111,7 @@
     position: absolute;
     top: -20%;
     left: 44%;
-    rotate: 90deg;
+    transform: rotate(90deg);
     margin-top: -5px;
     border-width: 5px;
     border-style: solid;
@@ -129,10 +141,10 @@
     margin-bottom: 10px;
     margin-top: 20px;
 }
-   
 .card-details {
     color: black;
     height: 100%;
+    width: 50%;
     gap: .5em;
     display: grid;
     place-content: center;
@@ -174,13 +186,15 @@
 }
 
 /* navigation to different pages */
+.links-box{
+    position: fixed;
+    bottom: 10px;
+    right: 60px;
+}
 .quick-links,.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
-    float:right;
-    margin-right: 22%;
-    margin-top: 90%;
 }
   
 .quick-btn {
@@ -220,5 +234,3 @@
     padding: 2px;
     width: 80px;
 }
-  
-  

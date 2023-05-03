@@ -2,6 +2,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
   font-size: 70px;
@@ -10,11 +11,10 @@
   font-family: "Helvetica", sans-serif;
 	color:rgba(24,117,255,0.5);
 	text-shadow:1px 3px 6px #fff,0 0 0 rgba(0, 0, 0,0.6),1px 3px 6px #fff;
-  transition: all 4s;
   cursor: pointer;
   z-index: -1;
 }
- .button {
+ .root-button {
   color: #fff;
   font-size: 70px;
   font-weight: 900;
@@ -26,26 +26,26 @@
   width: 500px;
   height: 500px;
   padding: 1em;
-  /* transition: all 4s; */
   cursor: pointer;
- }
-.button:hover {
-  rotate: 1080deg;
-  transition: rotate 16s;
-  scale: 1.005;
+}
+.root-button:hover {
+  -webkit-transform: rotate(1440deg);
+  transform: rotate(1440deg);
+  transition: all 16s linear;
   color: #000;
  }
-  .button:active {
+.root-button:active {
     background: rgba(24, 117, 255,0.2);
     box-shadow: 0px 14px 56px -11px #1875FF;
     transition: all 4s;
-  }
+}
 
 .title{
   color: rgb(255, 255, 255);
   position: fixed;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   font-size: 8em;
   font-weight: 700;

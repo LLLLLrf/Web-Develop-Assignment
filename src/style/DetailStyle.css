@@ -3,7 +3,7 @@
     width: 60%;
     height: 84vh;
     margin-left: 10%;
-    border: 1px solid #cbcbcb;
+    border: 1px solid #007bff;
     border-radius: 40px;
 }
 .head{
@@ -16,7 +16,31 @@
     color: #000;
 }
 
+/* detail */
 .main_content{
-    width: 80%;
-    margin: 16px auto 0 auto;
+    width: 92%;
+    margin: 0 auto;
+}
+.detail-img1{
+    float: right;
+    width: 54%;
+    border-radius: 40px;
+}
+.detail-img2{
+    float: left;
+    width: 54%;
+    border-radius: 40px;
+}
+.part1{
+    display: block;
+    margin-top: 4%;
+    min-height: 280px;
+}
+.part2{
+    display: block;
+    margin-top: 4%;
+}
+.text-body2{
+    float: left;
+    margin-left: 16px;
 }

@@ -5,10 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AboutMe</title>
-    <link rel="stylesheet" type="text/css" href="../style/AboutMeStyle.css">
+    <link rel="stylesheet" type="text/css" href="/style/AboutMeStyle.css">
 </head>
+
 <body>
+    <!-- This is an icon that indicate the code have passed the w3c CSS validation -->
+    <p style="position: fixed;top:0;left:8px;z-index:10000;">
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+            <img style="border:0;width:88px;height:31px"
+                src="http://jigsaw.w3.org/css-validator/images/vcss"
+                alt="Valid CSS!" />
+        </a>
+    </p>
+
     <div class="side-card">
+        <div class="time" id="time"></div>
         <button class="tooltip" id="home">
             <svg
             width="24"
@@ -31,16 +42,19 @@
             <img src="../image/profile.jpg" alt="profile" class="circle">
             <div class="ripples"></div>
         </div>
-        <div style="margin:90% 20px 0 70px">
+        <div style="margin:94% 20px 0 70px">
             <h3 style="font-weight: 700;">
-                个人简介
+                About Me
             </h3>
-            <div>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla dolore quam, quidem molestiae fugit reprehenderit expedita facilis, ipsum quibusdam rerum doloremque cupiditate, possimus temporibus sunt incidunt saepe autem ex veniam.
+            <div style="word-break:keep-all;">
+                Hi, welcome to my website. I'm <span style="font-weight: 700;">Ruofan Liao.</span> <br>
+                I'm a second-year student of Aberdeen institute of data science and artificial intelligence in South China Normal University, majoring in Computer Science. 
+                <br>
             </div>
         </div>
-          
-          <div class="quick-links">
+          <div class="links-box">
+
+            <div class="quick-links">
               <div id="Home" class="quick-btn flex-center">
                   <svg
                   width="22"
@@ -97,6 +111,8 @@
                   <span>Forum</span>
               </div>
           </div>
+        </div>
+
 
     </div>
      <div>

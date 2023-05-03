@@ -2,11 +2,24 @@ body {
   margin: 0;
   padding: 0;
 }
-
+/* number of online people */
+#numUsers{
+  float: right;
+  margin-right: 20px;
+  margin-top: 10px;
+  color: #007bff;
+}
+#registerUsers{
+  float: right;
+  margin-right: 20px;
+  margin-top: 10px;
+  color: #007bff;
+}
+/* send button */
 .send-button {
   font-family: inherit;
   font-size: 20px;
-  background: royalblue;
+  background: #007bff;
   color: white;
   padding: 0.7em 1em;
   padding-left: 0.9em;
@@ -16,6 +29,7 @@ body {
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.2s;
+  float: right;
 }
 
 .send-button span {
@@ -58,34 +72,19 @@ body {
 }
 
 /* beautify the scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-  overflow: hidden;
+/* this code will cause a warning in w3c CSS validation, so even though it really make my scrollbar beautiful, I can not use it*/
+/* ::-webkit-scrollbar {
+  width: 6px;
 }
-
 ::-webkit-scrollbar-track {
-  width: 3px;
-  background: rgba(#101F1C, 0.1);
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  border-radius: 2em;
+  border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(144,147,153,.5);
-  background-clip: padding-box;
-  min-height: 28px;
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  border-radius: 2em;
-  transition: background-color .3s;
-  cursor: pointer;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(144,147,153,.3);
-}
+  border-radius: inherit;
+  background-color: rgba(144, 147, 153, 0.3);
+  -webkit-transition: 0.3s background-color;
+  transition: 0.3s background-color;
+} */
 
 /* the chat box */
 .chat-box {
@@ -100,17 +99,31 @@ body {
   height: 86vh;
   overflow-x: hidden;
 }
+/* messages */
 .message-list {
   flex-grow: 1;
   overflow-y: scroll;
   word-break: break-all;
   overflow-x: auto;
-  /* padding: 10px; */
 }
 
 .message-item {
   margin-bottom: 20px;
   margin-left: 10px;
+  display: block;
+}
+
+.message-left {
+  float: left;
+  clear: both;
+  width: fit-content;
+  display: block;
+}
+.message-right{
+  float: right;
+  clear: both;
+  width: fit-content;
+  display: block;
 }
 .message-item .user-name {
   font-weight: bold;
@@ -119,27 +132,81 @@ body {
   border: #007bff 2px solid;
   border-radius: 30px;
   padding: 2px 10px;
+  width: fit-content;
 }
-.message-item .user-name::after {
+/* add ":" to username */
+.message-left .user-name::after {
   content: ":";
+}
+.message-right .user-name::before {
+  content: ":";
+}
+.message-right .user-name{
+  float: right;
+  margin-left: 6px;
+}
+.message-right .message-text{
+  float:left;
+  margin-top: 3px;
+}
+.message-left .user-name{
+  float: left;
+}
+.message-left .message-text{
+  float: right;
+  margin-top: 3px;
 }
 .message-item .message-text {
   margin-left: 6px;
   line-height: 1.3em;
   font-size: 1.1em;
 }
-
+/* joined and left */
+.joined-text {
+  text-align: center;
+  font-size: 0.8em;
+  color: #ccc;
+  margin: 8px 0;
+  display: block;
+  clear: both;
+}
+.joined-text::after{
+  content: " ---";
+}
+.joined-text::before{
+  content: "--- ";
+}
+.left-text{
+  text-align: center;
+  font-size: 0.8em;
+  color: #ccc;
+  margin: 8px 0;
+  display: block;
+  clear: both;
+}
+.left-text::after{
+  content: " ---";
+}
+.left-text::before{
+  content: "--- ";
+}
 /* input */
 .input-box {
-  /* border-top: #007bff 1px solid; */
   display: flex;
   align-items: center;
   padding: 10px;
-  /* background-color: #f5f5f5; */
   background-color: aliceblue;
   border-radius: 0 0 40px 40px;
+  width: 96%;
+  margin-right: 16px;
 }
-.input-box input[type="text"] {
+.input-box #message-form{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.input-box  input[type="text"] {
   flex-grow: 1;
   margin-right: 10px;
   padding: 10px;
@@ -163,75 +230,215 @@ body {
 
 
 /* username input */
-.wave-group {
-  position: relative;
-}
-
-.wave-group .input {
-  font-size: 16px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 200px;
-  border: none;
-  border-bottom: 1px solid #515151;
-  background: transparent;
-}
-
-.wave-group .input:focus {
-  outline: none;
-}
-
-.wave-group .label {
-  color: #999;
-  font-size: 18px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
+#username{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-
-.wave-group .label-char {
-  transition: 0.2s ease all;
-  transition-delay: calc(var(--index) * .05s);
-}
-
-.wave-group .input:focus ~ label .label-char,
-.wave-group .input:valid ~ label .label-char {
-  transform: translateY(-20px);
-  font-size: 14px;
-  color: #5264AE;
-}
-
-.wave-group .bar {
+.input__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 16px 16px 14px 16px;
+  border-radius: 20px;
   position: relative;
-  display: block;
-  width: 200px;
 }
 
-.wave-group .bar:before,.wave-group .bar:after {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 1px;
+.input__container::before {
+  content: "";
   position: absolute;
-  background: #5264AE;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: blur(25px);
+  border-radius: 20px;
+  background-color: #e499ff;
 }
 
-.wave-group .bar:before {
+.input__label {
+  display: block;
+  margin-left: 0.4em;
+  color: #000;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.input__description {
+  font-size: 0.6em;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.input {
+  border: none;
+  outline: none;
+  width: 80%;
+  margin: 2px auto 0 auto;
+  padding: 0.6em;
+  padding-left: 0.9em;
+  border-radius: 20px;
+  background: #fff;
+  transition: background 300ms, color 300ms;
+}
+
+.input:hover,.input:focus {
+  background: rgb(0, 0, 0);
+  color: #fff;
+}
+
+/* submit username */
+.submit-button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+  background-color: #171717;
+  padding: 6px 1.6em;
+  border: none;
+  border-radius: .6rem;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  width: 40%;
+  margin: 4px auto 0 auto;
+}
+
+.submit-button span:not(:nth-child(6)) {
+  position: absolute;
   left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 30px;
+  width: 30px;
+  background-color: #0c66ed;
+  border-radius: 50%;
+  transition: .6s ease;
+}
+.submit-button .text{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.submit-button span:nth-child(6) {
+  position: relative;
+}
+.submit-button span:nth-child(1) {
+  transform: translate(-3.3em, -4em);
+}
+.submit-button span:nth-child(2) {
+  transform: translate(-6em, 1.3em);
+}
+.submit-button span:nth-child(3) {
+  transform: translate(-.2em, 1.8em);
+}
+.submit-button span:nth-child(4) {
+  transform: translate(3.5em, 1.4em);
+}
+.submit-button span:nth-child(5) {
+  transform: translate(3.5em, -3.8em);
+}
+.submit-button:hover span:not(:nth-child(6)) {
+  transform: translate(-50%, -50%) scale(4);
+  transition: 1.5s ease;
+}
+  
+/* alert window */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9998; /* 放在提示框下面 */
+}
+#msg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: rgb(233, 233, 233) 3px solid;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: rgb(135,206,250);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  z-index: 10000;
+}
+#msg #msg_cont {
+  font-size: large;
+  font-weight: 700;
+  color: #000;
+  text-align: center; /* 居中显示 */
 }
 
-.wave-group .bar:after {
-  right: 50%;
+#msg #msg_clear {
+  border: rgb(233, 233, 233) 2px solid;
+  border-radius: 5px;
+  background-color: rgba(223, 229, 232, 0.3);
+  color: #000;
+  font-weight: 600;
+  width: fit-content;
+  margin-top: 6px;
+  padding: 2px 10px;
+  float: right; 
+}
+#msg #msg_clear:hover{
+  background-color: rgba(0, 123, 255,0.1);
+  transition: all 0.2s;
 }
 
-.wave-group .input:focus ~ .bar:before,
-.wave-group .input:focus ~ .bar:after {
-  width: 50%;
+/* user-list in side card */
+.user-list-box{
+  height: 200px;
+  margin-top: 16%;
+  background-color: #fff;
+  border-radius: 20px;
+  /* border-right: #fff 10px solid;
+  border-top: #fff 6px solid;
+  border-bottom: #fff 6px solid; */
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-
+.user-list-box .user-head{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 26px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+.user-list{
+  overflow-y:scroll;
+  overflow-x: hidden;
+  height: 160px;
+}
+.user-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 2px;
+  font-weight: 600;
+}
+.user-list-box .me{
+  color: rgba(12, 102, 237, 0.7);
+}
+.user-list-box .other{
+  color: #ccc;
+}
+.user-item:hover{
+  background-color: rgba(65, 105, 225,0.05);
+  transition: all 0.2s;
+}

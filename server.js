@@ -1,85 +1,86 @@
-// const express = require('express');
-// const WebSocket = require('ws');
-// const routes = require('./router.js');
-
-// const app = express();
-
-// // 设置静态文件目录
-// app.use(express.static('src'));
-
-// // 使用路由中间件
-// app.use('/', routes);
-
-// // 创建WebSocket服务器
-// const wss = new WebSocket.Server({ server: app.listen(3000) });
-
-// // 监听连接事件
-// wss.on('connection', function (ws) {
-//   console.log('Client connected');
-
-//   // 监听消息事件
-//   ws.on('message', function (message) {
-//     console.log('Received message:', message);
-
-//     // 广播消息给所有的客户端
-//     wss.clients.forEach(function (client) {
-//       if (client.readyState === WebSocket.OPEN) {
-//         client.send(message);
-//       }
-//     });
-//   });
-// });
-
-// console.log('服务器已启动，监听端口 127.0.0.1:3000');
-
-
-
-
-
-
-
-
-
-
 const express = require('express');
-const WebSocket = require('ws');
+const { callbackify } = require('util');
+const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 const routes = require('./router.js');
 
-const app = express();
-
-// 设置静态文件目录
 app.use(express.static('src'));
-
 // 使用路由中间件
 app.use('/', routes);
 
-// 创建HTTP服务器
-const server = app.listen(3000, () => {
-  console.log('服务器已启动，监听端口 127.0.0.1:3000');
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/src/html/RootPage.html');
 });
 
-// 创建WebSocket服务器
-const wss = new WebSocket.Server({ server });
-const unhandledMessages = [];
+ 
+const users = {};
+let numUsers = 0;
+let registerUsers=0;
+let typingUsers={};
 
-// 监听连接事件
-wss.on('connection', function (ws) {
-  console.log('Client connected');
-
-  // 监听消息事件
-  ws.on('message', function (message) {
-    console.log('Received message:', message);
-
-    // 广播消息给所有的客户端
-    wss.clients.forEach(function (client) {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(message);
-      }
+io.on('connection', (socket) => {
+    numUsers++;
+    console.log('a user connected');
+    
+    socket.on('disconnect', () => {
+    console.log('user disconnected');
+    if (users[socket.id]) {
+      io.emit('user left', users[socket.id]);
+      delete typingUsers[socket.id];
+      delete users[socket.id];
+      registerUsers--;
+    }
+    numUsers--;
     });
-  });
 
-  // 监听关闭事件
-  ws.on('close', function () {
-    console.log('Client disconnected');
-  });
+    socket.on('chat message', (msg) => {
+        io.emit('chat message', { user: users[socket.id], msg });
+    });
+    // return the user list
+    socket.on('user list', () => {
+        io.emit('user list', users);
+    });
+    // add new user
+    socket.on('new user', (username) => {
+        users[socket.id] = username;
+        io.emit('new user', username);
+        registerUsers++;
+    });
+    //detect the number of users
+    socket.on('numUsers', () => {
+        if(numUsers<0){ numUsers=0;}
+        io.emit('numUsers', {numUsers:numUsers, registerUsers:registerUsers});
+    });
+    // detect the number of users typing
+    socket.on('typing', (username) => {
+        // console.log(Object.keys(typingUsers).length);
+        // if username is not in typingUsers, then add it
+        if(!typingUsers[socket.id]){
+            typingUsers[socket.id] = username;
+        }
+    });
+    socket.on('stop typing', () => {
+        // if username is in typingUsers, then delete it
+        if(typingUsers[socket.id]){
+            delete typingUsers[socket.id];
+        }
+    });
+    socket.on('typingNum', () => {
+        io.emit('typingNum',Object.keys(typingUsers).length);
+    });
+
+    socket.on('user exists', (username) => {
+        for(let user_id in users) {
+            if(users[user_id]===username){
+                socket.emit('user exists', true);
+                return;
+            }
+        }
+    socket.emit('user exists', false);
+    });
+});
+
+http.listen(3000, () => {
+  console.log('listening on *:3000');
 });
