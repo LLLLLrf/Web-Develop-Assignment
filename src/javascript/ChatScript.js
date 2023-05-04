@@ -109,8 +109,6 @@ $(function () {
     previousValue = currentValue;
   });
 
-
-
   socket.on('new user', function(user) {
     if(username === '') {return;}
     $('#message-list').append($('<div>').addClass('joined-text').text(`${user} joined the chat`));

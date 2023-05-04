@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 
 // 设置路由
 router.get('/', function(req, res) {

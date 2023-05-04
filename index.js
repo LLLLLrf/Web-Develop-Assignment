@@ -3,8 +3,11 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const routes = require('./router.js');
-const hostname = '127.1.0.0';
-const port = 3000;
+const config = require('./config.js');
+
+const hostname = config.hostname;
+const port = config.port;
+
 app.use(express.static('src'));
 
 // use router middleware
