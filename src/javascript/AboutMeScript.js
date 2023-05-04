@@ -9,13 +9,12 @@ const cardsData = [
     },
     {
       title: '&#x270e; My Projects',
-      content: 'The projects I made in my spare time.'
+      content: 'The projects I made in spare time.'
     },
     {
       title: '&#x266b; Hobbies',
       content: 'Music & Sports!'
     },
-    
 ];
 
 const contents = [
@@ -25,7 +24,8 @@ const contents = [
         I'm excited to tell you a bit about my hometown. Shenzhen is a major city in China, located in the southern part of the country, 
         right next to Hong Kong. It's a vibrant and dynamic place, with lots of things to see and do.`,
         content2: `One of the things that makes Shenzhen special is its history. It used to be a small fishing village, 
-        but in the 1980s, it was designated as a special economic zone, which helped it to grow and develop into the bustling city it is today. Now, it's a hub of innovation, with lots of high-tech companies based here.
+        but in the 1980s, it was designated as a special economic zone, which helped it to grow and develop into the bustling city it is today. 
+        Now, it's a hub of innovation, with lots of high-tech companies based here.
         `
     },
     {
@@ -37,12 +37,22 @@ const contents = [
         content2: `Apart from my duties as Student Union President, I also had numerous opportunities to deliver speeches and 
         participate in meetings during my daily campus life. These experiences helped me to develop my public speaking skills, 
         enhance my leadership abilities, and expand my network.
-        Although my schedule was often packed, I found great satisfaction in being able to contribute to the university community and make a positive impact on the lives of my fellow students. Overall, my involvement in these activities has not only enriched my personal life, but also equipped me with valuable skills that will benefit me in my future endeavors.`
+        Although my schedule was often packed, I found great satisfaction in being able to contribute to the university community 
+        and make a positive impact on the lives of my fellow students. Overall, my involvement in these activities has not only enriched my personal life, 
+        but also equipped me with valuable skills that will benefit me in my future endeavors.`
     },
     {
         title: 'My Projects',
-        content1: 'This is the content of card 3.',
-        content2: 'This is the second part of card 3'
+        content1: `This is a study abroad planning and guidance system that I developed with three classmates, mainly using the Vue framework. T
+        he system aims to help students understand the application requirements and processes of various universities, 
+        and provide specific information and rankings for each school. In addition, 
+        students can stay informed about the latest developments and news from the colleges through this website, 
+        and communicate and consult with our guidance teachers online. The teachers can help students polish their application materials and improve their competitiveness.`,
+        content2: `This is my project for the Introduction to Software Engineering course, which is an ordering system designed for the coffee shop in our college. 
+        The system includes two sets of interfaces: one for users and one for administrators.
+        On the user side, customers can view drink details, choose options such as sugar level and temperature, add drinks to their shopping cart, and pay their order using Alipay, a popular payment method in China.
+        On the administrator side, the manager can view the details of orders submitted by users, confirm payment status, and provide feedback on whether the drinks have been prepared. 
+        The manager can also modify product information, add or remove items, and access a data analysis page that shows recent sales and revenue for each product.`
     },
     {
         title: 'Hobbies',

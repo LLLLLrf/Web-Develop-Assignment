@@ -196,7 +196,7 @@ body {
   padding: 10px;
   background-color: aliceblue;
   border-radius: 0 0 40px 40px;
-  width: 96%;
+  width: 98%;
   margin-right: 16px;
 }
 .input-box #message-form{
@@ -256,7 +256,7 @@ body {
   z-index: -1;
   filter: blur(25px);
   border-radius: 20px;
-  background-color: #e499ff;
+  background-color: rgba(0, 123, 255,0.8);
 }
 .input__label {
   display: block;

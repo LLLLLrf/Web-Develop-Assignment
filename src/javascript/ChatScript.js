@@ -80,6 +80,7 @@ $(function () {
   setInterval(function() {
     noEnter();
   }, 1000);
+  
   // if no enter, emit stop typing instantly
   function noEnter() {
     if(document.getElementById("message-input").value===""){

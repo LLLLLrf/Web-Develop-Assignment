@@ -1,18 +1,20 @@
 const express = require('express');
-const { callbackify } = require('util');
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const routes = require('./router.js');
-
+const hostname = '127.1.0.0';
+const port = 3000;
 app.use(express.static('src'));
-// 使用路由中间件
+
+// use router middleware
 app.use('/', routes);
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/src/html/RootPage.html');
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.send('Hello World!');
 });
-
  
 const users = {};
 let numUsers = 0;
@@ -21,10 +23,10 @@ let typingUsers={};
 
 io.on('connection', (socket) => {
     numUsers++;
-    console.log('a user connected');
+    // console.log('a user connected');
     
     socket.on('disconnect', () => {
-    console.log('user disconnected');
+    // console.log('user disconnected');
     if (users[socket.id]) {
       io.emit('user left', users[socket.id]);
       delete typingUsers[socket.id];
@@ -82,5 +84,5 @@ io.on('connection', (socket) => {
 });
 
 http.listen(3000, () => {
-  console.log('listening on *:3000');
+    console.log(`Server running at http://${hostname}:${port}/`);
 });
