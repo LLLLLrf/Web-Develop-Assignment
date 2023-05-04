@@ -10,15 +10,12 @@ function alert(message) {
   const msgClear = $('<div>').attr('id', 'msg_clear').text('OK');
   msg.append(msgCont).append(msgClear);
   $('body').append(msg);
-
   // remove overlay and message box when click OK button
   msgClear.click(function() {
     overlay.remove();
     msg.remove();
   });
 }
-
-
 
 $(function () {
   const socket = io();
@@ -113,16 +110,19 @@ $(function () {
 
 
 
-  socket.on('new user', function(username) {
-    $('#message-list').append($('<div>').addClass('joined-text').text(`${username} joined the chat`));
+  socket.on('new user', function(user) {
+    if(username === '') {return;}
+    $('#message-list').append($('<div>').addClass('joined-text').text(`${user} joined the chat`));
   });
 
-  socket.on('user left', function(username) {
-    $('#message-list').append($('<div>').addClass('left-text').text(`${username} left the chat`));
+  socket.on('user left', function(user) {
+    if(username === '') {return;}
+    $('#message-list').append($('<div>').addClass('left-text').text(`${user} left the chat`));
   });
 
   // add message to the message list
   socket.on('chat message', function(data) {
+    if(username === '') {return;}
     const { user, msg } = data;
     const messageClass = user === username ? 'message-right' : 'message-left';
     const message = $('<div>').addClass(`message-item ${messageClass}`);
@@ -166,44 +166,4 @@ $(function () {
     // focus on the input box
     $('#message-input').focus();
   });
-
-
 });
-
-// get current time
-function getTime(){
-  const date = new Date();
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  // fill 0 if the length of hours or minutes is 1
-  if(hours.toString().length===1){hours="0"+hours.toString()}
-  if(minutes.toString().length===1){minutes="0"+minutes.toString()}
-  return `${hours}:${minutes}`;
-}
-
-
-// redirect to other pages
-const home_button1 = document.getElementById("home");
-const home_button2 = document.getElementById("Home");
-const AboutMe = document.getElementById("AboutMe");
-const ChatPage = document.getElementById("Forum");
-const time = document.getElementById("time");
-
-home_button1.addEventListener("click", function(){
-    window.location.href = "/";
-});
-home_button2.addEventListener("click", function(){
-    window.location.href = "/";
-});
-AboutMe.addEventListener("click", function(){
-    window.location.href = "/AboutMe";
-});
-ChatPage.addEventListener("click", function(){
-    window.location.href = "/ChatPage";
-});
-window.onload = function(){
-  time.textContent = getTime();
-}
-setInterval(function(){
-  time.textContent = getTime();
-}, 5000);

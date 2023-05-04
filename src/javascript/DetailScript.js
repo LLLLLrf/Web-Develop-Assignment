@@ -24,10 +24,13 @@ if(index === "0"){
     main_content=createCardHTML(content1, content2, "/image/shenzhen1.jpg", "/image/shenzhen2.jpg");
 }
 if(index === "1"){
-    main_content=createCardHTML(content1, content2, "/image/shenzhen1.jpg", "/image/shenzhen2.jpg")
+    main_content=createCardHTML(content1, content2, "/image/collegelife1.jpg", "/image/collegelife2.jpg")
 }
 if(index === "2"){
-    main_content=createCardHTML(content1, content2, "/image/shenzhen1.jpg", "/image/shenzhen2.jpg")
+    main_content=createCardHTML(content1, content2, "/image/project1.jpg", "/image/project2.jpg")
+}
+if(index === "3"){
+    main_content=createCardHTML(content1, content2, "/image/badminton.jpg", "/image/music.jpg")
 }
 
 // get current time
@@ -45,27 +48,9 @@ function getTime(){
 
 document.getElementById('title').textContent = title;
 document.getElementById('content').innerHTML = main_content;
-const home_button1 = document.getElementById("home");
-const home_button2 = document.getElementById("Home");
-const AboutMe = document.getElementById("AboutMe");
-const ChatPage = document.getElementById("Forum");
-const time = document.getElementById("time");
 
-home_button1.addEventListener("click", function(){
-    window.location.href = "/";
-});
-home_button2.addEventListener("click", function(){
-    window.location.href = "/";
-});
-AboutMe.addEventListener("click", function(){
-    window.location.href = "/AboutMe";
-});
-ChatPage.addEventListener("click", function(){
-    window.location.href = "/ChatPage";
-});
-window.onload = function(){
-    time.textContent = getTime();
-}
-setInterval(function(){
-time.textContent = getTime();
-}, 5000);
+const exit_button = document.getElementById("exit-button")
+
+exit_button.addEventListener("click",function(){
+    window.location.href = "/AboutMe"
+})
