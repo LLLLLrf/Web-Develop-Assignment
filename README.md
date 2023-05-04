@@ -3,11 +3,12 @@
 ## File Structure
 ```
 Web-Develop-Assignment
+├─ config.js
+├─ index.js
 ├─ package-lock.json
 ├─ package.json
 ├─ README.md
 ├─ router.js
-├─ server.js
 └─ src
    ├─ html
    │  ├─ AboutMe.html
@@ -22,7 +23,6 @@ Web-Develop-Assignment
    │  ├─ profile.jpg
    │  ├─ project1.jpg
    │  ├─ project2.jpg
-   │  ├─ SCNU.jpg
    │  ├─ shenzhen1.jpg
    │  └─ shenzhen2.jpg
    ├─ javascript
@@ -36,4 +36,5 @@ Web-Develop-Assignment
       ├─ ChatStyle.css
       ├─ DetailStyle.css
       └─ RootStyle.css
+
 ```
