@@ -1,3 +1,5 @@
+/* https://jigsaw.w3.org/css-validator//validator.html.zh-cn#validate_by_upload+with_options */
+/* All css code pass the w3c CSS validation */
 .content{
     margin-top: 40px;
     width: 60%;
@@ -54,12 +56,10 @@
 }
 .part1{
     display: block;
-    /* height: 300px; */
 }
 .part2{
     clear: both;
     display: block;
-    /* height: 300px; */
 }
 .text-body1{
     margin:2%;

@@ -1,7 +1,6 @@
-body {
-  margin: 0;
-  padding: 0;
-}
+/* https://jigsaw.w3.org/css-validator//validator.html.zh-cn#validate_by_upload+with_options */
+/* All css code pass the w3c CSS validation */
+
 /* number of online people */
 #numUsers{
   float: right;

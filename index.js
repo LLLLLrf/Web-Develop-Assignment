@@ -14,9 +14,7 @@ app.use(express.static('src'));
 app.use('/', routes);
 
 app.get('/', (req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.send('Hello World!');
+    res.sendFile(__dirname + '/src/html/RootPage.html');
 });
  
 const users = {};
@@ -86,6 +84,7 @@ io.on('connection', (socket) => {
     });
 });
 
-http.listen(3000, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+http.listen(port, ()=>{
+    console.log(`listening on port: ${port}`);
+    console.log(`If you're running locally, server running at http://${hostname}:${port}/`);
 });

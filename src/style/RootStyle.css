@@ -1,8 +1,13 @@
-.greating{
+/* https://jigsaw.w3.org/css-validator//validator.html.zh-cn#validate_by_upload+with_options */
+/* All css code pass the w3c CSS validation */
+body {
+  margin: 0;
+  padding: 0;
+}
+.greeting{
   position: fixed;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
   font-size: 70px;
@@ -29,7 +34,6 @@
   cursor: pointer;
 }
 .root-button:hover {
-  -webkit-transform: rotate(1440deg);
   transform: rotate(1440deg);
   transition: all 16s linear;
   color: #000;
@@ -45,7 +49,6 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   font-size: 8em;
   font-weight: 700;
