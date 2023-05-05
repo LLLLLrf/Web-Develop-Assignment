@@ -1,8 +1,20 @@
-const title = localStorage.getItem('title');
-const content1 = localStorage.getItem('content1');
-const content2 = localStorage.getItem('content2');
-const index = localStorage.getItem('index');
+// read data from json files
+async function getData(jsonName) {
+    let response = await fetch(`data/${jsonName}.json`);
+    let data = await response.json();
+    return data;
+}
 
+(async function() {
+    // get data from json files
+    const contents = await getData("Contents");
+    // get card index from local storage
+    const index = localStorage.getItem('index');
+    main_content=createCardHTML(contents[index].content1, contents[index].content2, contents[index].img1, contents[index].img2);
+
+    document.getElementById('title').textContent = contents[index].title;
+    document.getElementById('content').innerHTML = main_content;
+})();
 
 function createCardHTML(content1,content2,img1,img2) {
     return `
@@ -19,38 +31,7 @@ function createCardHTML(content1,content2,img1,img2) {
     `;
   }
 
-
-if(index === "0"){
-    main_content=createCardHTML(content1, content2, "/image/shenzhen1.jpg", "/image/shenzhen2.jpg");
-}
-if(index === "1"){
-    main_content=createCardHTML(content1, content2, "/image/collegelife1.jpg", "/image/collegelife2.jpg")
-}
-if(index === "2"){
-    main_content=createCardHTML(content1, content2, "/image/project1.jpg", "/image/project2.jpg")
-}
-if(index === "3"){
-    main_content=createCardHTML(content1, content2, "/image/badminton.jpg", "/image/music.jpg")
-}
-
-// get current time
-function getTime(){
-    const date = new Date();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    // fill 0 if the length of hours or minutes is 1
-    if(hours.toString().length===1){hours="0"+hours.toString()}
-    if(minutes.toString().length===1){minutes="0"+minutes.toString()}
-    return `${hours}:${minutes}`;
-}
-
-
-
-document.getElementById('title').textContent = title;
-document.getElementById('content').innerHTML = main_content;
-
-const exit_button = document.getElementById("exit-button")
-
+const exit_button = document.getElementById("exit-button");
 exit_button.addEventListener("click",function(){
     window.location.href = "/AboutMe"
 })

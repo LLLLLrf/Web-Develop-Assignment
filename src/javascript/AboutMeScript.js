@@ -2,14 +2,12 @@
 async function getData(jsonName) {
     let response = await fetch(`data/${jsonName}.json`);
     let data = await response.json();
-    console.log(data);
     return data;
 }
 
 (async function() {
     // get data from json files
     const cardsData = await getData("CardsData");
-    const contents = await getData("Contents");
     // create HTML code for each card
     const cardsHTML=[];
     for(let i=0; i<cardsData.length; i++){
@@ -22,9 +20,6 @@ async function getData(jsonName) {
     const cards = document.getElementsByClassName("card")
     for(let i=0; i<cards.length; i++){
         cards[i].addEventListener("click", function(){
-            localStorage.setItem('title', contents[i].title);
-            localStorage.setItem('content1', contents[i].content1);
-            localStorage.setItem('content2', contents[i].content2)
             localStorage.setItem('index', i);
             window.location.href = "/DetailPage";
         });
