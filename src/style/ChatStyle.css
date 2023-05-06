@@ -44,7 +44,7 @@
 }
 
 .send-button:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
+  animation: fly 0.6s ease-in-out infinite alternate;
 }
 
 .send-button:hover svg {
@@ -59,7 +59,7 @@
   transform: scale(0.95);
 }
 
-@keyframes fly-1 {
+@keyframes fly {
   from {
     transform: translateY(0.1em);
   }

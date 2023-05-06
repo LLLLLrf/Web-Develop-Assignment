@@ -3,7 +3,6 @@ function alert(message) {
   // add overlay
   const overlay = $('<div>').addClass('overlay');
   $('body').append(overlay);
-
   // add message box
   const msg = $('<div>').attr('id', 'msg');
   const msgCont = $('<div>').attr('id', 'msg_cont').text(message);
@@ -20,8 +19,10 @@ function alert(message) {
 $(function () {
   const socket = io();
   let username = '';
-  socket.emit('user list')
-
+  setTimeout(() => {
+    socket.emit('user list')
+  }, 100);
+  // listen to the form submit event of the username input box
   $('#username-form').submit(function(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -56,7 +57,7 @@ $(function () {
     });
     return false;
   });
-
+  // listen to the form submit event of the message input box
   $('#message-form').submit(function(e) {
     e.preventDefault();
     const msg = $('#message-input').val();
@@ -64,6 +65,7 @@ $(function () {
       alert('Please enter a username first');
       return;
     }
+    // if the message is empty, don't send it
     if(msg){
       socket.emit('chat message', msg);
       $('#message-input').val('');
@@ -88,16 +90,14 @@ $(function () {
     }
   }
 
+  // use previousValue to check if the input value is changed
   let previousValue = '';
   let typingTimer;
-
+  // listen to the input event of the message input box
   document.getElementById("message-input").addEventListener("input", function(){
     const currentValue = this.value;
     // If the user hasn't entered a username yet, don't trigger the "typing" event
-    if(username === '') {
-      alert('Please enter a username first'); 
-      return;
-    }
+    if(username === '') {return;}
     // If the input value is changed, then trigger the "typing" event
     if (currentValue !== previousValue) {
       clearTimeout(typingTimer);
@@ -108,19 +108,22 @@ $(function () {
     }
     previousValue = currentValue;
   });
-
+  // when the user submits the username, append the join message to the message list
   socket.on('new user', function(user) {
+    // If the user hasn't entered a username yet, don't show the message
     if(username === '') {return;}
     $('#message-list').append($('<div>').addClass('joined-text').text(`${user} joined the chat`));
   });
-
+  // when the user leaves the chat, append the leave message to the message list
   socket.on('user left', function(user) {
+    // If the user hasn't entered a username yet, don't show the message
     if(username === '') {return;}
     $('#message-list').append($('<div>').addClass('left-text').text(`${user} left the chat`));
   });
 
   // add message to the message list
   socket.on('chat message', function(data) {
+    // If the user hasn't entered a username yet, don't show the message
     if(username === '') {return;}
     const { user, msg } = data;
     const messageClass = user === username ? 'message-right' : 'message-left';

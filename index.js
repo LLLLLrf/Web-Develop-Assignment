@@ -4,7 +4,6 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const routes = require('./router.js');
 const config = require('./config.js');
-
 const hostname = config.hostname;
 const port = config.port;
 
@@ -12,11 +11,10 @@ app.use(express.static('src'));
 
 // use router middleware
 app.use('/', routes);
-
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/src/html/RootPage.html');
 });
- 
+
 const users = {};
 let numUsers = 0;
 let registerUsers=0;
@@ -25,7 +23,6 @@ let typingUsers={};
 io.on('connection', (socket) => {
     numUsers++;
     // console.log('a user connected');
-    
     socket.on('disconnect', () => {
     // console.log('user disconnected');
     if (users[socket.id]) {
@@ -52,7 +49,6 @@ io.on('connection', (socket) => {
     });
     //detect the number of users
     socket.on('numUsers', () => {
-        if(numUsers<0){ numUsers=0;}
         io.emit('numUsers', {numUsers:numUsers, registerUsers:registerUsers});
     });
     // detect the number of users typing
