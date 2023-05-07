@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <!-- This is an icon that indicate the code have passed the w3c CSS validation -->
   <p style="position: fixed;top:0;left:8px;z-index:10000;">
     <a href="http://jigsaw.w3.org/css-validator/check/referer">
         <img style="border:0;width:88px;height:31px"
@@ -21,19 +22,26 @@
     </a>
   </p>
 
+  <!-- The Chat Box -->
   <div class="chat-box">
+
+    <!-- The header of the Chat Box -->
     <div class="chat-head">
       <div id="numUsers"></div>
       <div id="registerUsers"></div>
       <div id="type-status" style="width: fit-content;margin:0 auto;font-weight:800;border-bottom:#000 1px solid;text-align:center;line-height:30px">Chat Box</div>
     </div>
-    <div class="message-list" id="message-list">
-    </div>
+
+    <!-- An empty element to display the list of messages -->
+    <div class="message-list" id="message-list"></div>
+    
+    <!-- The username input box, will be removed after the username is submitted -->
     <div id="username">
       <form id="username-form">
         <div class="input__container">
           <label class="input__label">Username</label>
           <input placeholder="Enter your username" id="username-input" class="input" name="text" type="text">
+
           <button class="submit-button" id="submit-button">
             <span class="circle1"></span>
             <span class="circle2"></span>
@@ -44,31 +52,36 @@
               Submit
             </span>
           </button>
+          <!-- /the submit button -->
 
         </div>
-        
       </form>
     </div>
 
+    <!-- message input box -->
     <div class="input-box">
-          <form id="message-form">
+        <form id="message-form">
             <input type="text" id="message-input" autocomplete="off">
+
             <button type="submit" class="send-button">
-              <span class="svg-wrapper-1">
-                <span class="svg-wrapper">
+              <span class="icon-wrapper" style="display: block;">
+                <span class="svg-wrapper" style="display: block;">
                   <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 0h24v24H0z" fill="none"></path>
                     <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" fill="currentColor"></path>
                   </svg>
                 </span>
               </span>
-              <span>Send</span>
+              <span class="button-text">Send</span>
             </button>
-          </form>
+            <!-- /the send button -->
+
+        </form>
     </div>
+
   </div>
 
-
+  <!-- A navigation sidebar that wait for the SideCard.html to be added by javascript -->
   <div id="side-card-box"></div>
 
   <script src="/javascript/SideCard.js"></script>

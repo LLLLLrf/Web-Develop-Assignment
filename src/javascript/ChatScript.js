@@ -16,9 +16,11 @@ function alert(message) {
   });
 }
 
+
 $(function () {
   const socket = io();
   let username = '';
+  
   setTimeout(() => {
     socket.emit('user list')
   }, 100);
@@ -27,6 +29,7 @@ $(function () {
     e.preventDefault();
     e.stopPropagation();
     username = $('#username-input').val().trim();
+    // check if the username is valid
     if(username === '') {
       alert('No username entered');
       return false;
@@ -57,6 +60,7 @@ $(function () {
     });
     return false;
   });
+
   // listen to the form submit event of the message input box
   $('#message-form').submit(function(e) {
     e.preventDefault();
@@ -73,33 +77,21 @@ $(function () {
     }
   });
 
-  setInterval(function() {
-    socket.emit('numUsers');
-  }, 1000);
-  setInterval(function() {
-    socket.emit('typingNum');
-  }, 1000);
-  setInterval(function() {
-    noEnter();
-  }, 1000);
-  
-  // if no enter, emit stop typing instantly
+  // if the input box is already empty, emit stop typing instantly
   function noEnter() {
     if(document.getElementById("message-input").value===""){
       socket.emit('stop typing');
     }
   }
 
-  // use previousValue to check if the input value is changed
-  let previousValue = '';
-  let typingTimer;
+
   // listen to the input event of the message input box
   document.getElementById("message-input").addEventListener("input", function(){
     const currentValue = this.value;
     // If the user hasn't entered a username yet, don't trigger the "typing" event
     if(username === '') {return;}
     // If the input value is changed, then trigger the "typing" event
-    if (currentValue !== previousValue) {
+    if(currentValue !== previousValue) {
       clearTimeout(typingTimer);
       socket.emit('typing', username);
       typingTimer = setTimeout(function(){
@@ -108,12 +100,14 @@ $(function () {
     }
     previousValue = currentValue;
   });
+
   // when the user submits the username, append the join message to the message list
   socket.on('new user', function(user) {
     // If the user hasn't entered a username yet, don't show the message
     if(username === '') {return;}
     $('#message-list').append($('<div>').addClass('joined-text').text(`${user} joined the chat`));
   });
+
   // when the user leaves the chat, append the leave message to the message list
   socket.on('user left', function(user) {
     // If the user hasn't entered a username yet, don't show the message
@@ -125,11 +119,13 @@ $(function () {
   socket.on('chat message', function(data) {
     // If the user hasn't entered a username yet, don't show the message
     if(username === '') {return;}
+  
     const { user, msg } = data;
     const messageClass = user === username ? 'message-right' : 'message-left';
     const message = $('<div>').addClass(`message-item ${messageClass}`);
     const usernameDiv = $('<div>').addClass('user-name').text(user);
     const messageText = $('<div>').addClass('message-text').text(msg);
+
     message.append(usernameDiv).append(messageText);
     $('#message-list').append(message);
     document.getElementById("message-list").scrollTop = document.getElementById("message-list").scrollHeight;
@@ -141,6 +137,7 @@ $(function () {
     $('#numUsers').text(`online users: ${numUsers}`);
     $('#registerUsers').text(`registered users: ${registerUsers}`);
   });
+
   // real-time detection of whether a user is typing
   socket.on('typingNum', function(typingNum) {
     if(typingNum!==0) {
@@ -153,6 +150,7 @@ $(function () {
   // show the user list
   socket.on('user list', function(users) {
     $('#user-list').empty();
+    // add the user list to the user list box
     for(let user_id in users) {
       const user = users[user_id];
       const userClass = user === username ? 'me' : 'other';
@@ -160,6 +158,7 @@ $(function () {
       $('#user-list').append(user_item);
     }
   });
+
   // when click a user name, add "@username " to the input box and focus on the input box
   $(document).on('click', '.user-item', function() {
     const user = $(this).text();
@@ -168,4 +167,17 @@ $(function () {
     // focus on the input box
     $('#message-input').focus();
   });
+
+  // get numUsers and typingNum every 1 second
+  setInterval(function() {
+    socket.emit('numUsers');
+  }, 1000);
+  setInterval(function() {
+    socket.emit('typingNum');
+  }, 1000);
+  // check if the input box is empty every 0.1 second
+  setInterval(function() {
+    noEnter();
+  }, 100);
+  
 });

@@ -3,7 +3,7 @@
 /* https://jigsaw.w3.org/css-validator/validator.html.en#validate_by_upload */
 /* All CSS code pass the W3C CSS Validation */
 
-/* main cards */
+/* The main cards */
 .card {
     width: 60%;
     float: left;
@@ -29,7 +29,7 @@
     justify-content: left;
     margin-left: 10%;
 }
-   
+/* the more info button, set to opacity 0 and translate down 50% */
 .card-button {
     transform: translate(-50%,125%);
     width: 60%;
@@ -45,21 +45,17 @@
     opacity: 0;
     transition: 0.3s ease-out;
 }
-   
 .text-body {
     color: rgb(134,134,134);
 }
-   
 .text-title {
     font-size: 1.5em;
     font-weight: bold;
 }
-   
 .card:hover {
     border-color: #008bf8;
     box-shadow: 0 4px 18px 0 rgba(0,0,0,0.25);
 }
-   
 .card:hover .card-button {
     transform: translate(-50%,50%);
     opacity: 1;

@@ -1,8 +1,9 @@
 window.onload = function(){
-
+    // get side card html
     fetch('html/SideCard.html')
     .then(response => response.text())
     .then(data => {
+        // add side card to the page
         document.getElementById("side-card-box").innerHTML = data;
 
         // get current time
@@ -16,7 +17,7 @@ window.onload = function(){
             return `${hours}:${minutes}`;
         }
 
-        // redirect to other pages
+        // add event listener to each button and update time
         const home_button1 = document.getElementById("home");
         const home_button2 = document.getElementById("Home");
         const AboutMe = document.getElementById("AboutMe");
@@ -35,10 +36,10 @@ window.onload = function(){
         ChatPage.addEventListener("click", function(){
             window.location.href = "/ChatPage";
         });
+
         time.textContent = getTime();
         setInterval(function(){
         time.textContent = getTime();
         }, 5000);
-
     });
 }

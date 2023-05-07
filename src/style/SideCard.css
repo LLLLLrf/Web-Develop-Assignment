@@ -23,7 +23,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 }
-
+/* the profile picture and the animation */
 .circle{
     position: absolute;
     top: 10%;
@@ -64,6 +64,7 @@ body {
       border: 1px solid #c3c6ce;
     }
 }
+
 /* time */
 .time{
     float: left;
@@ -94,12 +95,10 @@ body {
     transform: scale(1.1);
     transition: transform 0.05s linear;
 }
-   
 .tooltip {
     position: relative;
     display: inline-block;
 }
-   
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 4em;
@@ -113,7 +112,6 @@ body {
     top: 90%;
     right: 0%;
 }
-   
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -125,7 +123,6 @@ body {
     border-style: solid;
     border-color: transparent rgba(0, 0, 0, 0.253) transparent transparent;
 }
-   
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
@@ -141,12 +138,9 @@ body {
     justify-content: center;
     align-items: center;
 }
-  
 .quick-btn {
-    cursor: pointer;
     height: 50px;
     width: 50px;
-    font-family: 'Titillium Web', sans-serif;
     color: #333;
     border-radius: 10px;
     /* box-shadow: rgba(0,0,0,0.1) 0px 10px 10px; */
@@ -157,7 +151,7 @@ body {
     transition: 0.3s;
     justify-content: center;
 }
-  
+/* button icons */
 .quick-btn svg {
     height: 24px;
     width: 24px;

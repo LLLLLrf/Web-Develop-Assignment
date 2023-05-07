@@ -10,13 +10,14 @@ async function getData(jsonName) {
     const contents = await getData("Contents");
     // get card index from local storage
     const index = localStorage.getItem('index');
-    main_content=createCardHTML(contents[index].content1, contents[index].content2, contents[index].img1, contents[index].img2);
-
+    main_content=createContentHTML(contents[index].content1, contents[index].content2, contents[index].img1, contents[index].img2);
+    // add cards to the page
     document.getElementById('title').textContent = contents[index].title;
     document.getElementById('content').innerHTML = main_content;
 })();
 
-function createCardHTML(content1,content2,img1,img2) {
+// turn content data into HTML code
+function createContentHTML(content1,content2,img1,img2) {
     return `
     <div class="" id="main-content">
         <div class="part1">
@@ -31,6 +32,7 @@ function createCardHTML(content1,content2,img1,img2) {
     `;
   }
 
+// add event listener to exit button
 const exit_button = document.getElementById("exit-button");
 exit_button.addEventListener("click",function(){
     window.location.href = "/AboutMe"

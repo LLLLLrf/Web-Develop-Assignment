@@ -7,6 +7,7 @@
 - Github:	https://github.com/LLLLLrf/Web-Develop-Assignment
 
 ## Structure Overview
+
 ### File Structure
 ```
 Web-Develop-Assignment
@@ -54,6 +55,7 @@ Web-Develop-Assignment
       ├─ DetailStyle.css
       ├─ RootStyle.css
       └─ SideCard.css
+
 
 ```
 ### Web Structure
@@ -103,7 +105,7 @@ This page consists of a text box and a navigation sidebar. When the content in t
 The biggest ***challenge*** in this page is:
 1. how to display different content according to the index in local storage.
 
-I first stored the detailed content and image to be displayed on each Card in [Contents.json](src/data/Contents.json "Contents.json"). Then, in [DetailScript.js](src/javascript/DetailScript.js "Detail Script"), I use the index from local storage to read the corresponding data in the JSON file. By using the function createCardHTML(), I generate the HTML code for the text box, then use the following JS code to involve them in the [DetailPage.html](src/html/DetailPage.html).
+I first stored the detailed content and image to be displayed on each Card in [Contents.json](src/data/Contents.json "Contents.json"). Then, in [DetailScript.js](src/javascript/DetailScript.js "Detail Script"), I use the index from local storage to read the corresponding data in the JSON file. By using the function createContentHTML(), I generate the HTML code for the text box, then use the following JS code to involve them in the [DetailPage.html](src/html/DetailPage.html).
 ```javascript
    document.getElementById('title').textContent = contents[index].title;
    document.getElementById('content').innerHTML = main_content;
@@ -134,7 +136,7 @@ Then, the variable **TypingNum** is used to record the number of users currently
 In addition to completing the requirements of the assignment, I have also done some extra work to make the website better.
 
 
-1. The ***[W3C Markup Validation Service](https://validator.w3.org/#validate_by_upload)*** and ***[W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator.html.en#validate_by_upload)*** provided by W3C were used to test all the HTML and CSS files in my project to ensure that there are no errors or warnings in both HTML and CSS code.
+1. The ***[W3C Markup Validation Service](https://validator.w3.org/#validate_by_upload)*** and ***[W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator.html.en#validate_by_upload)*** provided by **W3C** were used to test all the HTML and CSS files in my project to ensure that there are no errors or warnings in both HTML and CSS code.
 
 2. JSON files were used to store the content of the Introduction Page and About Page. And then I used asynchronous functions to read the data, which makes it easier to manage the data and connect to databases in the future.
 
@@ -146,15 +148,17 @@ In addition to completing the requirements of the assignment, I have also done s
 
 6. When the messages in the Chat Box exceed the height of the box, a scroll bar will appear, and each time a new message is added, the Chat Box will automatically scroll to the bottom to display the latest message.
 
-
-
 ## Shortcomings and Future Plans
 Although I have tried my best to make the page more functional and visually appealing, there are still some shortcomings in this website.
 
 1. Although JSON is used to store data, there is no connection to any database, which limits the scale of data, makes the website less secure, and lacks good scalability.
+
 2. For the Introduction page, there is no interface for publishing new content. If new articles need to be added, the JSON file needs to be modified, which is very inconvenient.
-3. The avatar in the navigation sidebar cannot be customized. In the future, I hope to add a feature that allows users to upload their own avatars, and display the username and avatar during chats.
+
+3. The profile picture in the navigation sidebar cannot be customized. In the future, I hope to add a feature that allows users to upload their own profile pictures, and display the username and profile picture during chats.
+
 4. When a user is @ by others, I hope the user will receive a noticeable message that can let the user know instantly, but this function have not been realized yet.
+
 
 ## Reference List
 1. https://www.w3cschool.cn/wematy/wematy-lf7y3bs4.html
