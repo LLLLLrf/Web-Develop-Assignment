@@ -72,7 +72,7 @@ After searching on the internet, I found that on a blue background, created two 
 ![Home Page](preview_picture/home.png "Home Page")
 
 #### Introduction Page
-This page consist of a list of cards and a navigation sidebar. If you click on any of the cards, the webpage will navigate to the **about page** and display content and images related to the title of the card.
+This page consist of a list of cards and a navigation sidebar. If you click on any of the cards, the webpage will navigate to the **about page** and display content and images related to the title of the card. I found that the picture resources in this page are too large, so it may takes some time to load all resources in this webpage. Thus, I made a loader to tell users the webpage is loading, please wait for a moment. 
 
 There were two main ***challenges*** I encountered in creating this page.
 1. How to display different content and images on the about page when a different card is clicked
@@ -98,7 +98,7 @@ window.onload = function(){
 ![Introduction Page](preview_picture/intro.png "Introduction Page")
 
 #### About Page
-This page consists of a text box and a navigation sidebar. When the content in the text box exceeds the height of the box, a scrollbar is generated. There is an arrow button located before the text title, which when clicked, takes the user back to the Introduction Page.
+This page consists of a text box and a navigation sidebar. When the content in the text box exceeds the height of the box, a scrollbar is generated. There is an arrow button located before the text title, which when clicked, takes the user back to the Introduction Page. 
 
 The biggest ***challenge*** in this page is:
 1. how to display different content according to the index in local storage.
@@ -130,16 +130,23 @@ Then, the variable **TypingNum** is used to record the number of users currently
 ![Chat Application](preview_picture/chat.png "Chat Application")
 ![Chat Application](preview_picture/user_typing.png "Chat Application")
 
-## Innovation and Advantages
-In addition to completing the requirements of the assignment, I also used JSON to store the content of the Introduction Page and About Page. I used asynchronous functions to read the data, which makes it easier to manage the data and connect to databases in the future.
+## Innovation and Extra Work
+In addition to completing the requirements of the assignment, I have also done some extra work to make the website better.
 
-I added a lot of CSS effects to the page, such as animations on the homepage and hover effects on buttons, to make the page more visually appealing. I used **Date()** to get the current system time and displayed it on the page.
 
-In the Chat Application page, users can mention other users by clicking on their names in the user list, which will insert "@username" into the input box.
+1. The ***[W3C Markup Validation Service](https://validator.w3.org/#validate_by_upload)*** and ***[W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator.html.en#validate_by_upload)*** provided by W3C were used to test all the HTML and CSS files in my project to ensure that there are no errors or warnings in both HTML and CSS code.
 
-When the messages in the Chat Box exceed the height of the box, a scroll bar will appear, and each time a new message is added, the Chat Box will automatically scroll to the bottom to display the latest message.
+2. JSON files were used to store the content of the Introduction Page and About Page. And then I used asynchronous functions to read the data, which makes it easier to manage the data and connect to databases in the future.
 
-I also used the ***[W3C CSS Validation Service](https://jigsaw.w3.org/css-validator//validator.html.zh-cn#validate_by_upload+with_options) website*** to test all CSS files in the document to ensure that there are no errors or warnings in the CSS code.
+3. I added a lot of CSS effects to the page, such as animations on the homepage and hover effects on buttons, to make the page more visually appealing. I used **Date()** to get the current system time and displayed it on the page.
+
+4. In the About Page, I made a loader to let user to wait for the page to load the resources. 
+
+5. In the Chat Application Page, users can mention other users by clicking on their names in the user list, which will insert "@username" into the input box.
+
+6. When the messages in the Chat Box exceed the height of the box, a scroll bar will appear, and each time a new message is added, the Chat Box will automatically scroll to the bottom to display the latest message.
+
+
 
 ## Shortcomings and Future Plans
 Although I have tried my best to make the page more functional and visually appealing, there are still some shortcomings in this website.
@@ -147,8 +154,11 @@ Although I have tried my best to make the page more functional and visually appe
 1. Although JSON is used to store data, there is no connection to any database, which limits the scale of data, makes the website less secure, and lacks good scalability.
 2. For the Introduction page, there is no interface for publishing new content. If new articles need to be added, the JSON file needs to be modified, which is very inconvenient.
 3. The avatar in the navigation sidebar cannot be customized. In the future, I hope to add a feature that allows users to upload their own avatars, and display the username and avatar during chats.
+4. When a user is @ by others, I hope the user will receive a noticeable message that can let the user know instantly, but this function have not been realized yet.
 
 ## Reference List
+1. https://www.w3cschool.cn/wematy/wematy-lf7y3bs4.html
+This Website shows me how to write HTML, CSS, JS in a standard form.
 1. https://www.php.cn/js-tutorial-413698.html
 This article shows how to use JavaScript to get the current time and display it.
 2. https://blog.csdn.net/weixin_44044705/article/details/106319784

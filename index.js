@@ -23,9 +23,10 @@ let typingUsers={};
 
 io.on('connection', (socket) => {
     numUsers++;
-    // console.log('a user connected');
+    console.log('a user connected');
+    
     socket.on('disconnect', () => {
-    // console.log('user disconnected');
+    console.log('user disconnected');
     if (users[socket.id]) {
       io.emit('user left', users[socket.id]);
       delete typingUsers[socket.id];

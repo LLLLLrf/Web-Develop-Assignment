@@ -1,5 +1,7 @@
-/* https://jigsaw.w3.org/css-validator//validator.html.zh-cn#validate_by_upload+with_options */
-/* All css code pass the w3c CSS validation */
+@charset "UTF-8";
+
+/* https://jigsaw.w3.org/css-validator/validator.html.en#validate_by_upload */
+/* All CSS code pass the W3C CSS Validation */
 
 /* main cards */
 .card {
@@ -8,7 +10,7 @@
     margin-left: 8%;
     height: 254px;
     border-radius: 20px;
-    background-color: rgba(65, 105, 225, 0.05);
+    background-color: rgba(65,105,225,0.05);
     position: relative;
     padding: 1.8rem;
     border: 2px solid #c3c6ce;
@@ -29,7 +31,7 @@
 }
    
 .card-button {
-    transform: translate(-50%, 125%);
+    transform: translate(-50%,125%);
     width: 60%;
     border-radius: 1rem;
     border: none;
@@ -45,7 +47,7 @@
 }
    
 .text-body {
-    color: rgb(134, 134, 134);
+    color: rgb(134,134,134);
 }
    
 .text-title {
@@ -55,10 +57,10 @@
    
 .card:hover {
     border-color: #008bf8;
-    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 18px 0 rgba(0,0,0,0.25);
 }
    
 .card:hover .card-button {
-    transform: translate(-50%, 50%);
+    transform: translate(-50%,50%);
     opacity: 1;
 }
