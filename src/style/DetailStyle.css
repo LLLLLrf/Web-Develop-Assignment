@@ -1,43 +1,38 @@
 /* https://jigsaw.w3.org/css-validator//validator.html.zh-cn#validate_by_upload+with_options */
 /* All css code pass the w3c CSS validation */
-.spinner {
-    width: 56px;
-    height: 56px;
-    display: grid;
+.loader {
     position: fixed;
-    top: 46%;
-    left: 40%;
+    top: 44%;
+    left: 38%;
     transform: translate(-50%, -50%);
 
-    border: 4.5px solid #0000;
-    border-radius: 50%;
-    border-color: #dbdcef #0000;
-    animation: spinner-e04l1k 1s infinite linear;
-  }
-  
-  .spinner::before,
-  .spinner::after {
-    content: "";
-    grid-area: 1/1;
-    margin: 2.2px;
-    border: inherit;
+    border: 4px solid rgba(0, 0, 0, .1);
+    border-left-color: transparent;
     border-radius: 50%;
   }
   
-  .spinner::before {
-    border-color: #007bff #0000;
-    animation: inherit;
-    animation-duration: 0.5s;
-    animation-direction: reverse;
+  .loader {
+    border: 4px solid rgba(0, 0, 0, .1);
+    border-left-color: transparent;
+    width: 36px;
+    height: 36px;
   }
   
-  .spinner::after {
-    margin: 8.9px;
+  .loader {
+    border: 4px solid rgba(0, 0, 0, .1);
+    border-left-color: transparent;
+    width: 36px;
+    height: 36px;
+    animation: spin89345 1s linear infinite;
   }
   
-  @keyframes spinner-e04l1k {
+  @keyframes spin89345 {
+    0% {
+      transform: rotate(0deg);
+    }
+  
     100% {
-      transform: rotate(1turn);
+      transform: rotate(360deg);
     }
   }
 
