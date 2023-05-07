@@ -10,10 +10,10 @@
     margin-left: 8%;
     height: 254px;
     border-radius: 20px;
-    background-color: rgba(65,105,225,0.05);
+    background-color: rgba(75,105,245,0.05);
     position: relative;
     padding: 1.8rem;
-    border: 2px solid #c3c6ce;
+    border: 2px solid rgb(195,198,230);
     transition: 0.5s ease-out;
     overflow: visible;
     margin-bottom: 10px;

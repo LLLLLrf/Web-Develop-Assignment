@@ -143,7 +143,6 @@ body {
     width: 50px;
     color: #333;
     border-radius: 10px;
-    /* box-shadow: rgba(0,0,0,0.1) 0px 10px 10px; */
     box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 60px;
     background: white;
     margin-left: 50px;
@@ -151,12 +150,13 @@ body {
     transition: 0.3s;
     justify-content: center;
 }
+
 /* button icons */
 .quick-btn svg {
     height: 24px;
     width: 24px;
 }
-
+/* hide the text in the button */
 .quick-btn span {
     width: 0px;
     overflow: hidden;
@@ -169,7 +169,6 @@ body {
     width: 120px;
     border-radius: 5px;
 }
-
 .quick-btn:hover span {
     padding: 2px;
     width: 80px;

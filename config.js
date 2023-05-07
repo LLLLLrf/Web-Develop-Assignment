@@ -5,5 +5,5 @@ const config = {
     // databaseUrl: '',
     // secretKey: '',
   };
-  
+  // export the config
   module.exports = config;

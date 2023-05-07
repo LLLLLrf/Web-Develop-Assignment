@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-// 设置路由
+// set routers for different pages
 router.get('/', function(req, res) {
   res.sendFile(__dirname + '/src/html/RootPage.html');
 });
@@ -19,5 +19,5 @@ router.get('/ChatPage', function(req, res) {
     res.sendFile(__dirname + '/src/html/ChatPage.html');
 });
 
-// 导出路由
+// export router
 module.exports = router;
