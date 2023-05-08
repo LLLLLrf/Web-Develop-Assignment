@@ -99,4 +99,5 @@ io.on('connection', (socket) => {
 http.listen(port, ()=>{
     console.log(`listening on port: ${port}`);
     console.log(`If you're running locally, server running at http://${hostname}:${port}/`);
+    console.log(`If you're running on codio, server running at https://peaceyoga-normaldarwin-${port}.codio-box.uk/)
 });
