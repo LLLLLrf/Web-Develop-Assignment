@@ -1,5 +1,5 @@
 # Web-Develop-Assignment
-(If you are in codio, right click on the README.md file name above and choose the button "Preview static" to make sure all images and links display as expected)
+(If you are in codio, right click on the README.md file name above and choose the button "Preview static" to make sure all images and links are displayed as expected)
 
 - School:	University of Aberdeen & South China Normal University
 - Major:	Computer Science
