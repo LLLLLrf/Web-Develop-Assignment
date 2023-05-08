@@ -1,5 +1,5 @@
 # Web-Develop-Assignment
-(If you are in codio, right click on the README.md file name above and choose the button "Preview static" to make sure all images and links are displayed as expected)
+(If you are in codio, right click on the README.md file above and choose the button "Preview static" to make sure all images and links are displayed as expected)
 
 - School:	University of Aberdeen & South China Normal University
 - Major:	Computer Science
@@ -39,10 +39,11 @@ npm start
 
 ### Overview of the website
 This website mainly consists of four pages, **home page**, **introduction page**, **about page** and **chat application**, all tasks required in assignment have been completed and some extra work has been completed.
-.
+
 ### Descriptions of each pages
 
 #### Home Page
+
 ##### Description
 This page is relatively simple, consisting of a welcome button and an animated background. I have implemented an animated background that flows like waves, when you hover the cursor over the button, the button will rotate.
 
@@ -54,6 +55,7 @@ After searching on the internet, I found that on a blue background, created two 
 ![Home Page](preview_picture/home.png "Home Page")
 
 #### Introduction Page
+
 ##### Description
 This page consist of a list of cards and a navigation sidebar. By setting **border-radius** in CSS, I change the sidebar to an irregular shape. If you click on any of the cards, the webpage will navigate to the **about page** and display content and images related to the title of the card. I found that the picture resources in this page are too large, so it may takes some time to load all resources in this webpage. Thus, I made a loader to tell users the webpage is loading, please wait for a moment. 
 
@@ -71,6 +73,7 @@ async function getData(jsonName) {
     return data;
 }
 ```
+
 For the second challenge, I included all the HTML code for the navigation sidebar in [SideCard.html](src/html/SideCard.html "sidebar html"), then I read it in [SideCard.js](src/javascript/SideCard.js "navigation sidebar") and then inserted it into every HTML file that imported this JS file by using the following JS code. Therefore, all that is required to display the navigation sidebar in every HTML file is to import this JS file and include a **div** element with the **id="side-card-box"** in each HTML file where the sidebar is needed.
 
 ```javascript
@@ -82,6 +85,7 @@ window.onload = function(){
 ![Introduction Page](preview_picture/intro.png "Introduction Page")
 
 #### About Page
+
 ##### Description
 This page consists of a text box and a navigation sidebar. When the content in the text box exceeds the height of the box, a scrollbar is generated. There is an arrow button located before the text title, which when clicked, takes the user back to the Introduction Page. 
 
@@ -97,6 +101,7 @@ I first stored the detailed content and image to be displayed on each Card in [C
 ![About Page](preview_picture/detail.png "About Page")
 
 #### Chat Application
+
 ##### Description
 This page is the focal point of the assignment, and I will provide a detailed explanation of its implementation method and specifics. This page consist of a chat box and a navigation sidebar, but I added a user list in the sidebar.
 
@@ -119,6 +124,7 @@ Then, the variable **TypingNum** is used to record the number of users currently
 ![Chat Application](preview_picture/user_typing.png "Chat Application")
 
 ## <span id="ExtraWork">Innovation and Extra Work</span>
+
 In addition to completing the requirements of the assignment, I have also done some extra work to make the website better.
 
 
@@ -137,6 +143,7 @@ In addition to completing the requirements of the assignment, I have also done s
 7. When the messages in the Chat Box exceed the height of the box, a scroll bar will appear, and each time a new message is added, the Chat Box will automatically scroll to the bottom to display the latest message.
 
 ## <span id="Shortcomings">Shortcomings and Future Plans</span>
+
 Even though I tried to make the page as appealing as possible both functionally and visually, the website still has a few shortcomings.
 
 1. Although JSON is used to store data, there is no connection to any database, which limits the scale of data, makes the website less secure, and lacks good scalability.
@@ -154,6 +161,7 @@ Even though I tried to make the page as appealing as possible both functionally 
 
 
 ## <span id="Reference">Reference List</span>
+
 1. [https://www.w3cschool.cn/wematy/wematy-lf7y3bs4.html](https://www.w3cschool.cn/wematy/wematy-lf7y3bs4.html)
 This Website shows me how to write HTML, CSS, JS in a standard form.
 1. [https://www.php.cn/js-tutorial-413698.html](https://www.php.cn/js-tutorial-413698.html)
