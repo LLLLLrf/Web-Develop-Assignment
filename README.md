@@ -154,15 +154,15 @@ Even though I tried to make the page as appealing as possible both functionally 
 
 
 ## <span id="Reference">Reference List</span>
-1. https://www.w3cschool.cn/wematy/wematy-lf7y3bs4.html
+1. [https://www.w3cschool.cn/wematy/wematy-lf7y3bs4.html](https://www.w3cschool.cn/wematy/wematy-lf7y3bs4.html)
 This Website shows me how to write HTML, CSS, JS in a standard form.
-1. https://www.php.cn/js-tutorial-413698.html
+1. [https://www.php.cn/js-tutorial-413698.html](https://www.php.cn/js-tutorial-413698.html)
 This article shows how to use JavaScript to get the current time and display it.
-2. https://blog.csdn.net/weixin_44044705/article/details/106319784
+2. [https://blog.csdn.net/weixin_44044705/article/details/106319784](https://blog.csdn.net/weixin_44044705/article/details/106319784)
 I have learned how to use text-shadow in CSS3 to Implementing artistic text effect.
-3. https://getcssscan.com/css-box-shadow-examples
+3. [https://getcssscan.com/css-box-shadow-examples](https://getcssscan.com/css-box-shadow-examples)
 This website provides different kinds of box shadow.
-4. https://mp.weixin.qq.com/s/w1nVRSOYvBTatzoX2IzM4A
+4. [https://mp.weixin.qq.com/s/w1nVRSOYvBTatzoX2IzM4A](https://mp.weixin.qq.com/s/w1nVRSOYvBTatzoX2IzM4A)
 The design of the home page was inspired by this website
-5. https://css.gg/app
+5. [https://css.gg/app](https://css.gg/app)
 This website provides me many svg icons
