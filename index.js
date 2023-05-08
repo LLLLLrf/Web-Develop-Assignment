@@ -7,11 +7,11 @@ const config = require('./config.js');
 const hostname = config.hostname;
 const port = config.port;
 
+// use express middleware and set static directory
 app.use(express.static('src'));
 
 // use router middleware
 app.use('/', routes);
-
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/src/html/RootPage.html');
 });

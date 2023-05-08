@@ -24,6 +24,7 @@ $(function () {
   setTimeout(() => {
     socket.emit('user list')
   }, 100);
+  
   // listen to the form submit event of the username input box
   $('#username-form').submit(function(e) {
     e.preventDefault();
