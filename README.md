@@ -26,56 +26,6 @@ npm start
 ```
 
 ## <span id="StructureOverview">Structure Overview</span>
-```
-Web-Develop-Assignment
-├─ config.js
-├─ index.js
-├─ package-lock.json
-├─ package.json
-├─ preview_picture
-│  ├─ chat.png
-│  ├─ detail.png
-│  ├─ home.png
-│  ├─ intro.png
-│  ├─ menu.png
-│  ├─ user_typing.png
-│  └─ web_structure.png
-├─ README.md
-├─ router.js
-└─ src
-   ├─ data
-   │  ├─ CardsData.json
-   │  └─ Contents.json
-   ├─ html
-   │  ├─ AboutMe.html
-   │  ├─ ChatPage.html
-   │  ├─ DetailPage.html
-   │  ├─ RootPage.html
-   │  └─ SideCard.html
-   ├─ image
-   │  ├─ badminton.jpg
-   │  ├─ collegelife1.jpg
-   │  ├─ collegelife2.jpg
-   │  ├─ music.jpg
-   │  ├─ profile.jpg
-   │  ├─ project1.jpg
-   │  ├─ project2.jpg
-   │  ├─ shenzhen1.jpg
-   │  └─ shenzhen2.jpg
-   ├─ javascript
-   │  ├─ AboutMeScript.js
-   │  ├─ ChatScript.js
-   │  ├─ DetailScript.js
-   │  ├─ RootScript.js
-   │  └─ SideCard.js
-   └─ style
-      ├─ AboutMeStyle.css
-      ├─ ChatStyle.css
-      ├─ DetailStyle.css
-      ├─ RootStyle.css
-      └─ SideCard.css
-
-```
 
 ### File Structure
 <!-- codio cannot show the text version menu well, so I use image instead -->
