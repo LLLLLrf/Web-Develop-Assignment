@@ -6,13 +6,21 @@
 - Student Number:	50079732
 - Github:	https://github.com/LLLLLrf/Web-Develop-Assignment
 
-## Usage
+> **Contents**
+> 1. [Usage](#Usage)
+> 2. [Structure Overview](#StructureOverview)
+> 3. [Basic Design for the Website](#BasicDesign)
+> 4. [Innovation and Extra Work](#ExtraWork)
+> 5. [Shortcomings and Future Plans](#Shortcomings)
+> 6. [Reference List](#Reference)
+
+## <span id="Usage">Usage</span>
 ```
 cd Web-Development-Assignment/
 npm start
 ```
 
-## Structure Overview
+## <span id="StructureOverview">Structure Overview</span>
 
 ### File Structure
 <!-- codio cannot show the text version menu well, so I use image instead -->
@@ -21,7 +29,7 @@ npm start
 ![web structure](preview_picture/web_structure.png "Web Structure")
 
 
-## Basic design for the website
+## <span id="BasicDesign">Basic design for the website</span>
 
 ### Overview of the website
 This website mainly consists of four pages, **home page**, **introduction page**, **about page** and **chat application**, all tasks required in assignment have been completed and some extra work has been completed.
@@ -104,7 +112,7 @@ Then, the variable **TypingNum** is used to record the number of users currently
 ![Chat Application](preview_picture/chat.png "Chat Application")
 ![Chat Application](preview_picture/user_typing.png "Chat Application")
 
-## Innovation and Extra Work
+## <span id="ExtraWork">Innovation and Extra Work</span>
 In addition to completing the requirements of the assignment, I have also done some extra work to make the website better.
 
 
@@ -122,7 +130,7 @@ In addition to completing the requirements of the assignment, I have also done s
 
 7. When the messages in the Chat Box exceed the height of the box, a scroll bar will appear, and each time a new message is added, the Chat Box will automatically scroll to the bottom to display the latest message.
 
-## Shortcomings and Future Plans
+## <span id="Shortcomings">Shortcomings and Future Plans</span>
 Even though I tried to make the page as appealing as possible both functionally and visually, the website still has a few shortcomings.
 
 1. Although JSON is used to store data, there is no connection to any database, which limits the scale of data, makes the website less secure, and lacks good scalability.
@@ -139,7 +147,7 @@ Even though I tried to make the page as appealing as possible both functionally 
 
 
 
-## Reference List
+## <span id="Reference">Reference List</span>
 1. https://www.w3cschool.cn/wematy/wematy-lf7y3bs4.html
 This Website shows me how to write HTML, CSS, JS in a standard form.
 1. https://www.php.cn/js-tutorial-413698.html
