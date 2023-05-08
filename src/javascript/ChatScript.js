@@ -85,6 +85,10 @@ $(function () {
     }
   }
 
+  // use typingTimer to store the timer
+  let typingTimer;
+  // use previousValue to store the previous value of the input box
+  let previousValue = '';
 
   // listen to the input event of the message input box
   document.getElementById("message-input").addEventListener("input", function(){

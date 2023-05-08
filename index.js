@@ -63,7 +63,6 @@ io.on('connection', (socket) => {
 
     // detect the number of users typing
     socket.on('typing', (username) => {
-        // console.log(Object.keys(typingUsers).length);
         // if username is not in typingUsers, then add it
         if(!typingUsers[socket.id]){
             typingUsers[socket.id] = username;
