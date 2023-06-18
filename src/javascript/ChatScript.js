@@ -101,7 +101,7 @@ $(function () {
       socket.emit('typing', username);
       typingTimer = setTimeout(function(){
         socket.emit('stop typing');
-      }, 5000);
+      }, 3000);
     }
     previousValue = currentValue;
   });
